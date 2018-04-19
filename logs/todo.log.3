@@ -1,4 +1,4 @@
-2018-04-19 18:25:33,779 ERROR: Exception on /index [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+2018-04-19 19:08:05,653 ERROR: Exception on /home [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,7 +14,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 53, in index
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 70, in home
     next_url=next_url, prev_url=prev_url)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 134, in render_template
     context, ctx.app)
@@ -28,8 +28,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 16, in template
-    <p>{{ _('Recruitments') }} - {{ post.author }} - {{ _('We're Recruiting!') }}</p>
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 33, in template
+    <a href="{{  }}" target="_blank">
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 1005, in render
     return concat(self.root_render_func(self.new_context(vars)))
   File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 2, in top-level template code
@@ -52,55 +52,18 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 16, in template
-    <p>{{ _('Recruitments') }} - {{ post.author }} - {{ _('We're Recruiting!') }}</p>
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 33, in template
+    <a href="{{  }}" target="_blank">
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
     return Parser(self, source, name, encode_filename(filename)).parse()
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
     result = nodes.Template(self.subparse(), lineno=1)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 875, in subparse
     add_data(self.parse_tuple(with_condexpr=True))
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 620, in parse_tuple
-    args.append(parse())
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 432, in parse_expression
-    return self.parse_condexpr()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 437, in parse_condexpr
-    expr1 = self.parse_or()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 450, in parse_or
-    left = self.parse_and()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 459, in parse_and
-    left = self.parse_not()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 470, in parse_not
-    return self.parse_compare()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 474, in parse_compare
-    expr = self.parse_math1()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 496, in parse_math1
-    left = self.parse_concat()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 507, in parse_concat
-    args = [self.parse_math2()]
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 517, in parse_math2
-    left = self.parse_pow()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 528, in parse_pow
-    left = self.parse_unary()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 547, in parse_unary
-    node = self.parse_postfix(node)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 676, in parse_postfix
-    node = self.parse_call(node)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 767, in parse_call
-    self.stream.expect('comma')
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 're'
-2018-04-19 18:26:05,916 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:26:29,781 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:33:10,503 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:34:15,902 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:34:46,410 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:36:26,547 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:46:16,146 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:46:36,993 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:50:24,695 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:50:45,632 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:52:02,234 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:53:01,276 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 18:56:55,247 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 637, in parse_tuple
+    describe_token(self.stream.current))
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print statement'
+2018-04-19 19:08:23,219 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 19:10:20,722 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]

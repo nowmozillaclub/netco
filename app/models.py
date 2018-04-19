@@ -21,11 +21,17 @@ class User(UserMixin, db.Model):
     about_me = db.Column(db.String(140))
     type = db.Column(db.String(20))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    name = db.Column(db.String(50))
+    phone = db.Column(db.Integer)
+    experience = db.Column(db.String(1000))
+    departments = db.Column(db.String(100))
+    why = db.Column(db.String(1000))
     followed = db.relationship(
                'User', secondary=followers,
                primaryjoin=(followers.c.follower_id == id),
                secondaryjoin=(followers.c.followed_id == id),
                backref=db.backref('followers', lazy='dynamic'), lazy = 'dynamic')
+
 
     def __repr__(self):
         return '<User {}>'.format(self.username)

@@ -32,7 +32,9 @@ class RegistrationForm(FlaskForm):
 
 class EditProfileForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
-    about_me = StringField(_l('About Me'), validators=[Length(min=0, max=140)])
+    name = StringField(_l('Name'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('About The Committee'), validators=[Length(min=0, max=1000)])
+    departments = StringField(_l('Departments'), validators=[DataRequired()])
     submit = SubmitField(_l('Save'))
 
     def __init__(self, original_username, *args, **kwargs):
@@ -45,6 +47,26 @@ class EditProfileForm(FlaskForm):
             if user is not None:
                 raise ValidationError(_l('Username Already Taken'))
 
+class ManageForm(FlaskForm):
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    name = StringField(_l('Name'), validators=[DataRequired()])
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    phone = StringField(_l('Phone'), validators=[DataRequired(),Length(min=10,max=10)])
+    departments = StringField(_l('Departments'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('About Me'), validators=[Length(min=0, max=1000)])
+    experience = TextAreaField(_l('My Experience'), validators=[Length(min=0, max=1000)])
+    why = TextAreaField(_l('Why I Want to Join'), validators=[DataRequired(),Length(min=0, max=1000)])
+    submit = SubmitField(_l('Save'))
+
+    def __init__(self, original_username, *args, **kwargs):
+        super(ManageForm, self).__init__(*args, **kwargs)
+        self.original_username = original_username
+
+    def validate_username(self, username):
+        if username.data != self.original_username:
+            user = User.query.filter_by(username = self.username.data).first()
+            if user is not None:
+                raise ValidationError(_l('Username Already Taken'))
 class PostEventForm(FlaskForm):
     event = StringField(_l('Event Name'), validators=[DataRequired(), Length(min=1, max=50)])
     post = TextAreaField(_l('Description'), validators=[

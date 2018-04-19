@@ -1,4 +1,4 @@
-2018-04-19 19:10:22,648 ERROR: Exception on /home [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+2018-04-19 23:41:01,074 ERROR: Exception on /manage [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 70, in home
-    next_url=next_url, prev_url=prev_url)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 177, in manage
+    return render_template('edit_profile.html', title=_('Manage'), form=form)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 134, in render_template
     context, ctx.app)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 116, in _render
@@ -28,11 +28,7 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 38, in template
-    <a href="{{ url_for('delete', current_post = post) {% if current_user != post.author %} disabled{% endif %}}}">
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 2, in top-level template code
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\edit_profile.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
   File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
@@ -46,28 +42,12 @@ Traceback (most recent call last):
     {% block content -%}
   File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 51, in block "content"
     {% block app_content %}{% endblock %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 11, in block "app_content"
-    {% include '_post.html' %}
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 38, in template
-    <a href="{{ url_for('delete', current_post = post) {% if current_user != post.author %} disabled{% endif %}}}">
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 876, in subparse
-    self.stream.expect('variable_end')
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '{'
-2018-04-19 19:11:18,040 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:12:01,995 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:14:10,505 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:14:53,495 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:17:26,701 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:22:31,230 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:25:01,275 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 19:26:22,183 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\edit_profile.html", line 8, in block "app_content"
+    {{ wtf.from_field(form.username) }}
+jinja2.exceptions.UndefinedError: 'jinja2.environment.TemplateModule object' has no attribute 'from_field'
+2018-04-19 23:41:33,366 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 23:41:37,556 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 23:42:25,060 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 23:42:58,715 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 23:43:54,943 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 23:45:02,798 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]

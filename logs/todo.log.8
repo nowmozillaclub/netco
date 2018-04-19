@@ -1,4 +1,4 @@
-2018-04-18 23:05:52,158 ERROR: Exception on /index [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+2018-04-19 17:23:44,395 ERROR: Exception on /index [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,7 +14,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\routes.py", line 53, in index
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 54, in index
     next_url=next_url, prev_url=prev_url)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 134, in render_template
     context, ctx.app)
@@ -28,9 +28,9 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\index.html", line 2, in top-level template code
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 2, in top-level template code
     {% import 'bootstrap/wtf.html' as wtf %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\base.html", line 1, in top-level template code
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
     {% block doc -%}
@@ -40,81 +40,17 @@ Traceback (most recent call last):
     {% block body -%}
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
     {% block content -%}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\base.html", line 51, in block "content"
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 51, in block "content"
     {% block app_content %}{% endblock %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\index.html", line 11, in block "app_content"
-    {% include '_post.html' %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\_post.html", line 25, in top-level template code
-    <a href="{{ url_for(www.google.com) }}" target="_blank">
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 9, in block "app_content"
+    {{ form1.language.label }}
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
     return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'www' is undefined
-2018-04-18 23:06:22,211 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:06:23,407 ERROR: Exception on /index [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
-Traceback (most recent call last):
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\routes.py", line 53, in index
-    next_url=next_url, prev_url=prev_url)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 134, in render_template
-    context, ctx.app)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 116, in _render
-    rv = template.render(context)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
-    {% block content -%}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\base.html", line 51, in block "content"
-    {% block app_content %}{% endblock %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\index.html", line 11, in block "app_content"
-    {% include '_post.html' %}
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\templates\_post.html", line 25, in top-level template code
-    <a href="{{ url_for(post.link) }}" target="_blank">
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\helpers.py", line 333, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\helpers.py", line 323, in url_for
-    force_external=external)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'www.google.com'. Did you mean 'logout' instead?
-2018-04-18 23:07:15,136 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:09:49,674 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:10:12,471 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:10:35,510 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:11:38,051 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:17:13,650 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:17:21,255 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:17:31,642 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
-2018-04-18 23:18:23,973 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+jinja2.exceptions.UndefinedError: 'form1' is undefined
+2018-04-19 17:24:11,931 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 17:24:51,822 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 17:54:23,841 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 17:54:30,174 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 17:54:45,896 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 17:54:51,764 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 17:55:06,846 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]

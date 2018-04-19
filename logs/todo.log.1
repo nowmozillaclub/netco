@@ -1,0 +1,69 @@
+2018-04-19 19:08:05,653 ERROR: Exception on /home [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 70, in home
+    next_url=next_url, prev_url=prev_url)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 33, in template
+    <a href="{{  }}" target="_blank">
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 1005, in render
+    return concat(self.root_render_func(self.new_context(vars)))
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 51, in block "content"
+    {% block app_content %}{% endblock %}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\index.html", line 11, in block "app_content"
+    {% include '_post.html' %}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_post.html", line 33, in template
+    <a href="{{  }}" target="_blank">
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 875, in subparse
+    add_data(self.parse_tuple(with_condexpr=True))
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 637, in parse_tuple
+    describe_token(self.stream.current))
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
+    raise exc(msg, lineno, self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: Expected an expression, got 'end of print statement'
+2018-04-19 19:08:23,219 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-19 19:10:20,722 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]

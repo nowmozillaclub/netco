@@ -1,0 +1,75 @@
+<table class="table table-hover">
+  <tr>
+    <td width="70px">
+      <a href="{{ url_for('user', username=post.author.username) }}">
+        <img src="{{ post.author.avatar(70) }}" />
+      </a>
+    </td>
+    <td>
+
+      {% set user_link %}
+        <a href="{{ url_for('user', username=post.author.username) }}">
+          {{ post.author.username }}
+        </a>
+      {% endset %}
+
+      {{ _('%(username)s added (%(when)s)', username=user_link, when=moment(post.timestamp).fromNow()) }}
+      <br><br>
+
+      {% if post.type=='recruitments' %}
+        <p>{{ _('Recruitments') }} - {{ post.author.username }} - {{ _("We're Recruiting!") }}</p>
+        {{ post.body }}
+
+        {% if post.language and post.language != g.locale %}
+        <br><br>
+        <a href="#">{{ _('Translate') }}</a>
+        {% endif %}
+
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous">
+              <a href="" target="_blank">
+                {{_('Apply')}}  <span aria-hidden="true"></span>
+              </a>
+            </li>
+            {% if current_user == post.author %}
+            <li class="next">
+              <a href="{{ url_for('delete', current_post = post) }}">
+                {{_('Delete')}}  <span aria-hidden="true">&#x2718;</span>
+              </a>
+            </li>
+            {% endif %}
+      </ul>
+    </nav>
+
+      {% else %}
+
+        {{ post.body }}
+
+        {% if post.language and post.language != g.locale %}
+        <br><br>
+        <a href="#">{{ _('Translate') }}</a>
+        {% endif %}
+
+        <nav aria-label="...">
+          <ul class="pager">
+              <li class="previous">
+                <a href="{{ post.link }}" target="_blank">
+                  {{_('Register')}}  <span aria-hidden="true"></span>
+                </a>
+              </li>
+
+            {% if current_user == post.author %}
+              <li class="next">
+                <a href="{{ url_for('delete', current_post = post) }}">
+                  {{_('Delete')}}  <span aria-hidden="true">&#x2718;</span>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        <nav aria-label="...">
+      {% endif %}
+    </td>
+  </tr>
+</table>

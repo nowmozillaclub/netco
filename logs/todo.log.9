@@ -1,0 +1,62 @@
+2018-04-18 23:01:07,216 ERROR: Exception on /index [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: post.link
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\routes.py", line 46, in index
+    page, app.config['POSTS_PER_PAGE'], False)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 491, in paginate
+    items = self.limit(per_page).offset((page - 1) * per_page).all()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2737, in all
+    return list(self)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2889, in __iter__
+    return self._execute_and_instances(context)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2912, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\util\compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\util\compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\sqlalchemy\engine\default.py", line 507, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: post.link [SQL: 'SELECT anon_1.post_id AS anon_1_post_id, anon_1.post_body AS anon_1_post_body, anon_1.post_event AS anon_1_post_event, anon_1.post_link AS anon_1_post_link, anon_1.post_timestamp AS anon_1_post_timestamp, anon_1.post_user_id AS anon_1_post_user_id, anon_1.post_language AS anon_1_post_language \nFROM (SELECT post.id AS post_id, post.body AS post_body, post.event AS post_event, post.link AS post_link, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.language AS post_language \nFROM post JOIN followers ON followers.followed_id = post.user_id \nWHERE followers.follower_id = ? UNION SELECT post.id AS post_id, post.body AS post_body, post.event AS post_event, post.link AS post_link, post.timestamp AS post_timestamp, post.user_id AS post_user_id, post.language AS post_language \nFROM post \nWHERE post.user_id = ?) AS anon_1 ORDER BY anon_1.post_timestamp DESC\n LIMIT ? OFFSET ?'] [parameters: (2, 2, 3, 0)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-04-18 23:02:11,105 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:02:17,340 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:02:20,230 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:02:24,110 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:02:29,611 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:03:36,245 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:04:28,680 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:05:38,204 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]

@@ -1,0 +1,85 @@
+2018-04-18 10:25:10,826 ERROR: Exception on /delete/<Post Test> [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+TypeError: delete() missing 1 required positional argument: 'author'
+2018-04-18 10:25:20,409 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:25:53,695 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:26:09,835 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:26:29,916 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:27:22,878 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:27:49,238 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:27:53,679 ERROR: Exception on /delete/<Post Test> [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\Documents\College\SEM VI\PL\Project\todo\app\routes.py", line 207, in delete
+    print (current_post.body)
+AttributeError: 'str' object has no attribute 'body'
+2018-04-18 10:28:32,882 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:29:06,041 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:29:30,480 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:31:59,992 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:32:14,844 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:32:34,220 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:36:05,679 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:36:09,269 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:37:28,994 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:38:37,298 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:39:13,488 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 10:40:54,859 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 13:22:11,657 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 13:27:08,478 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 13:29:05,657 INFO: TODO Startup [in E:\Documents\College\SEM VI\PL\Project\todo\app\__init__.py:51]
+2018-04-18 20:24:52,635 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 20:25:25,965 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 20:25:32,388 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 20:26:54,485 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 20:31:18,338 ERROR: Exception on /index [POST] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+Traceback (most recent call last):
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
+    raise value
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\routes.py", line 39, in index
+    post = EventPost(body=form.post.data, author=current_user, language=language)
+NameError: name 'EventPost' is not defined
+2018-04-18 20:32:51,137 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 20:34:08,963 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:00:11,087 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:00:46,392 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]
+2018-04-18 23:01:03,914 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\todo\app\__init__.py:51]

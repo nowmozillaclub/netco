@@ -5,10 +5,20 @@
         <tr>
             <td width="256px"><img src="{{ user.avatar(256) }}"></td>
             <td>
-                <h1>{{_('User')}}: {{ user.username }}</h1>
+                <h1>{{ user.username }}</h1>
                 {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.departments %}<p>{{_('Departments Available: ')}}{{ user.departments }}</p>{% endif %}
                 {% if user.last_seen %}<p>{{_('Last seen on')}}: {{ moment(user.last_seen).format('LLL') }}</p>{% endif %}
-                <p>{{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}</p>
+                <p>{{ _('%(count)d following', count=user.followed.count()) }}</p>
+                {% if user.type == 'committee' %}
+                {% if user == current_user %}
+                <a href="{{ url_for('applications') }}">
+                  <p>{{ _('%(count)d applicants', count=user.applicants.count()) }}</p>
+                </a>
+                {% endif %}
+                {% else %}
+                <p>{{ _('%(count)d applied for', count=user.applied.count()) }}</p>
+                {% endif %}
                 {% if user == current_user %}
                 <p><a href="{{ url_for('edit_profile') }}">{{_('Profile')}}</a></p>
                 {% elif not current_user.is_following(user) %}
@@ -16,27 +26,55 @@
                 {% else %}
                 <p><a href="{{ url_for('unfollow', username=user.username) }}">{{_('Unfollow')}}</a></p>
                 {% endif %}
-                {% if user == current_user %}
-                <p><a href="{{ url_for('clearall') }}">{{_('Clear All To-dos!')}}</a></p>
+                {% if user == current_user and current_user.type == 'committee' %}
+                <p><a href="{{ url_for('clearall') }}">{{_('Clear All Posts!')}}</a></p>
+                {% endif %}
+                {% if user != current_user and current_user.type == 'committee' %}
+                <nav aria-label="...">
+                    <ul class="pager">
+                      <li class="next">
+                        <a href="{{ url_for('deleteApplication', username = user.username) }}">
+                          {{_('Reject')}}  <span aria-hidden="true">&#x2718;</span>
+                        </a>
+                      </li>
+                    </ul>
+                </nav>
                 {% endif %}
             </td>
         </tr>
     </table>
+    {% if user.type == 'student' %}
+    <table>
+      <th>
+        <tr>
+          <td><b>{{_('SOP')}}</b></td>
+        </tr>
+      </th>
+      <tr>
+        <td>{{ user.name }}</td>
+      </tr>
+      <tr>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td>{{ user.phone }}</td>
+      </tr>
+      <tr>
+        <td>{{ user.departments }}</td>
+      </tr>
+      <tr>
+        <td>{{ user.about_me }}</td>
+      </tr>
+      <tr>
+        <td>{{ user.experience }}</td>
+      </tr>
+      <tr>
+        <td>{{ user.why }}</td>
+      </tr>
+    </table>
+    {% else %}
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled{% endif %}">
-                <a href="{{ prev_url or '#' }}">
-                    <span aria-hidden="true">&larr;</span> {{_('Newer')}}
-                </a>
-            </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
-                <a href="{{ next_url or '#' }}">
-                    {{_('Older')}}  <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    {% endif %}
 {% endblock %}

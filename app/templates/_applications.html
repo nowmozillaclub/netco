@@ -1,0 +1,27 @@
+<a href="{{ url_for('user', username=u.username) }}">
+  <table class="table table-hover">
+    <tr>
+      <td width="70px">
+          <img src="{{ u.avatar(70) }}" />
+        </a>
+      </td>
+      <td>
+        <a href="{{ url_for('user', username=u.username) }}">
+          {{ u.username }}
+        </a>
+        <br>
+          {{ u.why }}
+        <br>
+        <nav aria-label="...">
+            <ul class="pager">
+              <li class="next">
+                <a href="{{ url_for('deleteApplication', username = u.username) }}">
+                  {{_('Reject')}}  <span aria-hidden="true">&#x2718;</span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+      </td>
+    </tr>
+  </table>
+</a>

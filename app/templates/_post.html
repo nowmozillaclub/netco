@@ -20,27 +20,35 @@
         <p>{{ _('Recruitments') }} - {{ post.author.username }} - {{ _("We're Recruiting!") }}</p>
         {{ post.body }}
 
-        {% if post.language and post.language != g.locale %}
-        <br><br>
-        <a href="#">{{ _('Translate') }}</a>
-        {% endif %}
-
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous">
-              <a href="" target="_blank">
-                {{_('Apply')}}  <span aria-hidden="true"></span>
-              </a>
-            </li>
-            {% if current_user == post.author %}
-            <li class="next">
-              <a href="{{ url_for('delete', current_post = post) }}">
-                {{_('Delete')}}  <span aria-hidden="true">&#x2718;</span>
-              </a>
-            </li>
+            {% if post.language and post.language != g.locale %}
+            <br><br>
+            <a href="#">{{ _('Translate') }}</a>
             {% endif %}
-      </ul>
-    </nav>
+
+      <nav aria-label="...">
+          <ul class="pager">
+            {% if current_user.type == 'student' %}
+              <li class="previous">
+                {% if not current_user.is_applied(post.author) %}
+                <a href="{{ url_for('apply', username=post.author.username) }}">
+                  {{_('Apply')}}
+                {% else %}
+                <a href="{{ url_for('unapply', username=post.author.username) }}">
+                  {{_('Rescind Application')}}
+                  <span aria-hidden="true"></span>
+                </a>
+              </li>
+              {% endif %}
+              {% endif %}
+              {% if current_user == post.author %}
+              <li class="next">
+                <a href="{{ url_for('delete', current_post = post) }}">
+                  {{_('Delete')}}  <span aria-hidden="true">&#x2718;</span>
+                </a>
+              </li>
+              {% endif %}
+        </ul>
+      </nav>
 
       {% else %}
 
@@ -53,12 +61,13 @@
 
         <nav aria-label="...">
           <ul class="pager">
+            {% if current_user.type == 'student' %}
               <li class="previous">
                 <a href="{{ post.link }}" target="_blank">
                   {{_('Register')}}  <span aria-hidden="true"></span>
                 </a>
               </li>
-
+            {% endif %}
             {% if current_user == post.author %}
               <li class="next">
                 <a href="{{ url_for('delete', current_post = post) }}">

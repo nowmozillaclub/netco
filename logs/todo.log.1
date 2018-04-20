@@ -1,4 +1,4 @@
-2018-04-19 23:19:58,606 ERROR: Exception on /manage [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+2018-04-20 18:51:19,144 ERROR: Exception on /applications [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,20 +14,54 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 151, in manage
-    return redirect(url_for('profile'))
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\helpers.py", line 333, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 64, in applications
+    return render_template('applications.html', title=_('Applications'), users=users)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 134, in render_template
+    context, ctx.app)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 116, in _render
+    rv = template.render(context)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\helpers.py", line 323, in url_for
-    force_external=external)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'profile'. Did you mean 'edit_profile' instead?
-2018-04-19 23:20:36,195 ERROR: Exception on /manage [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\applications.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\base.html", line 51, in block "content"
+    {% block app_content %}{% endblock %}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\applications.html", line 9, in block "app_content"
+    {% include '_applications.html' %}
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\_applications.html", line 18, in top-level template code
+    <a href="{{ url_for('deleteApplication', username = user.username) }}">
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+2018-04-20 18:51:44,559 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:53:38,210 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:53:44,171 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:53:58,347 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:55:59,071 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:56:58,898 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:58:12,384 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:58:42,677 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:59:03,975 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 18:59:40,119 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 19:00:06,089 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 19:01:17,218 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+2018-04-20 19:01:21,792 ERROR: Exception on /user/Sarvesh [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
 Traceback (most recent call last):
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
     response = self.full_dispatch_request()
@@ -43,53 +77,40 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 151, in manage
-    return redirect(url_for('edit_profile'))
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\helpers.py", line 333, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1805, in handle_url_build_error
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 133, in user
+    return render_template('user.html', user=user, posts=posts.items, next_url=next_url, prev_url=prev_url)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 591, in compile
+    self.handle_exception(exc_info, source_hint=source_hint)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\helpers.py", line 323, in url_for
-    force_external=external)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\werkzeug\routing.py", line 1776, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'profile'. Did you mean 'edit_profile' instead?
-2018-04-19 23:20:42,645 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:22:52,283 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:23:13,850 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:23:19,249 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:25:31,391 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:27:27,740 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:36:24,493 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:36:42,011 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:36:49,387 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:36:51,092 ERROR: Exception on /manage [GET] [in e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py:1560]
-Traceback (most recent call last):
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1982, in wsgi_app
-    response = self.full_dispatch_request()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1614, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1517, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\_compat.py", line 33, in reraise
-    raise value
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1612, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask\app.py", line 1598, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\routes.py", line 155, in manage
-    form = ManageForm(current_user.username)
-  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\wtforms\form.py", line 212, in __call__
-    return type.__call__(cls, *args, **kwargs)
-  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\forms.py", line 62, in __init__
-    super(EditProfileForm, self).__init__(*args, **kwargs)
-TypeError: super(type, obj): obj must be an instance or subtype of type
-2018-04-19 23:37:20,942 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:38:37,352 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:39:23,405 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:39:45,447 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
-2018-04-19 23:40:59,892 INFO: TODO Startup [in E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\__init__.py:51]
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "E:\Documents\College\SEM VI\FWT\Project\Webby\webby\app\templates\user.html", line 32, in template
+    <nav aria-label="...">
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
+    return Parser(self, source, name, encode_filename(filename)).parse()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
+    result = nodes.Template(self.subparse(), lineno=1)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
+    rv = self.parse_statement()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
+    return getattr(self, 'parse_' + self.stream.current.value)()
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 268, in parse_block
+    node.body = self.parse_statements(('name:endblock',), drop_needle=True)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 165, in parse_statements
+    result = self.subparse(end_tokens)
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\parser.py", line 888, in subparse
+    self.stream.expect('block_end')
+  File "e:\documents\college\sem vi\pl\project\todo\venv\lib\site-packages\jinja2\lexer.py", line 384, in expect
+    self.name, self.filename)
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of statement block', got '<'

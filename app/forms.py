@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, TextField, SelectField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length, Optional
+from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length, Optional, URL
 from app.models import User
 from flask_babel import _, lazy_gettext as _l
 
@@ -52,10 +52,10 @@ class ManageForm(FlaskForm):
     name = StringField(_l('Name'), validators=[DataRequired()])
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
     phone = StringField(_l('Phone'), validators=[DataRequired(),Length(min=10,max=10)])
-    departments = StringField(_l('Departments'), validators=[DataRequired()])
-    about_me = TextAreaField(_l('About Me'), validators=[Length(min=0, max=1000)])
-    experience = TextAreaField(_l('My Experience'), validators=[Length(min=0, max=1000)])
-    why = TextAreaField(_l('Why I Want to Join'), validators=[DataRequired(),Length(min=0, max=1000)])
+    departments = StringField(_l('Departments Interested In'), validators=[DataRequired()])
+    about_me = TextAreaField(_l('About Me (Max: 1000 Characters)'), validators=[Length(min=0, max=1000)])
+    experience = TextAreaField(_l('My Experience (Max: 1000 Characters)'), validators=[Length(min=0, max=1000)])
+    why = TextAreaField(_l('Why Me (Max: 1000 Characters)'), validators=[DataRequired(),Length(min=0, max=1000)])
     submit = SubmitField(_l('Save'))
 
     def __init__(self, original_username, *args, **kwargs):
@@ -67,11 +67,12 @@ class ManageForm(FlaskForm):
             user = User.query.filter_by(username = self.username.data).first()
             if user is not None:
                 raise ValidationError(_l('Username Already Taken'))
+                
 class PostEventForm(FlaskForm):
-    event = StringField(_l('Event Name'), validators=[DataRequired(), Length(min=1, max=50)])
-    post = TextAreaField(_l('Description'), validators=[
+    event = StringField(_l('Event Name (Max: 50 Characters)'), validators=[DataRequired(), Length(min=1, max=50)])
+    post = TextAreaField(_l('Description (Max: 250 Characters)'), validators=[
            DataRequired(), Length(min=1, max=250)])
-    link = StringField(_l('Registration Link'), validators=[Optional(strip_whitespace=True)])
+    link = StringField(_l('Registration Link (Enter a https/http URL)'), validators=[Optional(strip_whitespace=True), URL()])
     type = SelectField('Type of Event', choices=[('event', 'Event'), ('recruitments', 'Recruitments')], validators=[DataRequired()])
     submit = SubmitField(_l('Add!'))
 

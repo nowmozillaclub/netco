@@ -12,6 +12,10 @@ followers = db.Table('followers', db.Column('follower_id', db.Integer, db.Foreig
                                   db.Column('followed_id', db.Integer, db.ForeignKey('user.id'))
                     )
 
+applicants = db.Table('applicants', db.Column('applicant_id', db.Integer, db.ForeignKey('user.id')),
+                                    db.Column('applied_id', db.Integer, db.ForeignKey('user.id'))
+                    )
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -26,12 +30,17 @@ class User(UserMixin, db.Model):
     experience = db.Column(db.String(1000))
     departments = db.Column(db.String(100))
     why = db.Column(db.String(1000))
+
+    applied = db.relationship(
+               'User', secondary=applicants,
+               primaryjoin=(applicants.c.applicant_id == id),
+               secondaryjoin=(applicants.c.applied_id == id),
+               backref=db.backref('applicants', lazy='dynamic'), lazy = 'dynamic')
     followed = db.relationship(
                'User', secondary=followers,
                primaryjoin=(followers.c.follower_id == id),
                secondaryjoin=(followers.c.followed_id == id),
                backref=db.backref('followers', lazy='dynamic'), lazy = 'dynamic')
-
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -57,12 +66,29 @@ class User(UserMixin, db.Model):
     def is_following(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count()>0
 
+    def apply(self, user):
+        if not self.is_applied(user):
+            self.applied.append(user)
+
+    def unapply(self, user):
+        if self.is_applied(user):
+            self.applied.remove(user)
+
+    def is_applied(self, user):
+        return self.applied.filter(applicants.c.applied_id == user.id).count()>0
+
     def followed_posts(self):
         followed = Post.query.join(followers, (
                         followers.c.followed_id == Post.user_id)).filter(
                         followers.c.follower_id == self.id)
         own = Post.query.filter_by(user_id=self.id)
         return followed.union(own).order_by(Post.timestamp.desc())
+
+    def applied_applicants(self):
+        applied = User.query.join(applicants, (
+                        applicants.c.applied_id == User.id)).filter(
+                        applicants.c.applicant_id == self.id)
+        return applied
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(

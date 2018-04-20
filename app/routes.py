@@ -55,6 +55,14 @@ def index():
                             posts=posts.items,
                             next_url=next_url, prev_url=prev_url)
 
+@app.route('/applications', methods=['GET', 'POST'])
+@login_required
+def applications():
+    if current_user.type == 'student':
+        return redirect(url_for('home'))
+    users=User.query.all()
+    return render_template('applications.html', title=_('Applications'), users=users)
+
 @app.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
@@ -164,7 +172,7 @@ def manage():
         current_user.why = form.why.data
         db.session.commit()
         flash (_('Your changes have been saved.'))
-        return redirect(url_for('edit_profile'))
+        return redirect(url_for('manage'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.name.data = current_user.name
@@ -174,7 +182,7 @@ def manage():
         form.about_me.data = current_user.about_me
         form.experience.data = current_user.experience
         form.why.data = current_user.why
-    return render_template('edit_profile.html', title=_('Manage'), form=form)
+    return render_template('manage.html', title=_('Manage'), form=form)
 
 @app.route('/follow/<username>')
 @login_required
@@ -205,6 +213,42 @@ def unfollow(username):
     db.session.commit()
     flash(_('Successfully unfollowed %(username)s.', username=username))
     return redirect(url_for('user', username=username))
+
+@app.route('/apply/<username>')
+@login_required
+def apply(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        flash(_("Couldn't find user: %(username)s",username=username))
+        return redirect(url_for('index'))
+    current_user.apply(user)
+    db.session.commit()
+    flash(_('Successfully Applied for %(username)s!', username=username))
+    return redirect(url_for('user', username=username))
+
+@app.route('/unapply/<username>')
+@login_required
+def unapply(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        flash(_('Could not find %(username)s'.format(username)))
+        return redirect(url_for('index'))
+    current_user.unapply(user)
+    db.session.commit()
+    flash(_('Successfully rescinded application for %(username)s.', username=username))
+    return redirect(url_for('user', username=username))
+
+@app.route('/deleteApplication/<username>')
+@login_required
+def deleteApplication(username):
+    user = User.query.filter_by(username=username).first()
+    if user is None:
+        flash(_('Could not find %(username)s'.format(username)))
+        return redirect(url_for('index'))
+    user.unapply(current_user)
+    db.session.commit()
+    flash(_('Successfully deleted application for %(username)s.', username=username))
+    return redirect(url_for('applications'))
 
 @app.route('/explore')
 @login_required
@@ -253,8 +297,9 @@ def reset_password(token):
 def clearall():
     posts = Post.query.all()
     for p in posts:
-        db.session.delete(p)
-        db.session.commit()
+        if p.author == current_user:
+            db.session.delete(p)
+            db.session.commit()
     return redirect(url_for('index'))
 
 @app.route('/delete/<current_post>')
@@ -266,6 +311,4 @@ def delete(current_post):
             if str(p) == current_post:
                 db.session.delete(p)
                 db.session.commit()
-        else:
-            flash(_('You cannot delete someone elses posts!'))
     return redirect(url_for('index'))

@@ -142,7 +142,7 @@
 
 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
 <center>
-    <div class="alert alert-info" role="alert" style="width:1300px; text-align:left;">
+    <div class="alert alert-info" role="alert" style="width:100%; text-align:left;">
         <div style="padding-left:10px">{{ message }}</div>
     </div>
 </center>
@@ -162,15 +162,15 @@
 
 
         <div class="col-sm-6">
-            <h2 style="margin-left:90px; padding-left:50px">{{_('Sign In')}}</h2>
-            <div class="row" style="margin-left:90px; padding-left:50px">
+            <h2 style="padding-left:25px; padding-right:25px">{{_('Sign In')}}</h2>
+            <div style="padding-left:25px; padding-right:25px">
                 <div class="col-md-8">
                     {{ wtf.quick_form(form) }}
                 </div>
             </div>
             <br>
-            <p style="margin-left:92px; padding-left:50px"><a href="{{ url_for('register') }}">{{_('New User?')}} </a></p>
-            <p style="margin-left:92px; padding-left:50px"><a href="{{ url_for('reset_password_request') }}">{{_('Forgot Your Password?')}}</a></p>
+            <p style="padding-left:25px; padding-right:25px"><a href="{{ url_for('register') }}">{{_('New User?')}} </a></p>
+            <p style="padding-left:25px; padding-right:25px"><a href="{{ url_for('reset_password_request') }}">{{_('Forgot Your Password?')}}</a></p>
 
         </div>
     </div>

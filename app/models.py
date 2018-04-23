@@ -26,7 +26,7 @@ class User(UserMixin, db.Model):
     type = db.Column(db.String(20))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     name = db.Column(db.String(50))
-    phone = db.Column(db.Integer)
+    phone = db.Column(db.String(10))
     experience = db.Column(db.String(1000))
     departments = db.Column(db.String(100))
     why = db.Column(db.String(1000))

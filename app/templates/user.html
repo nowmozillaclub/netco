@@ -26,7 +26,7 @@
                             <p><a href="{{ url_for('unfollow', username=user.username) }}">{{_('Unfollow')}}</a></p>
                             {% endif %} {% if user == current_user and current_user.type == 'committee' %}
                             <p><a href="{{ url_for('clearall') }}">{{_('Clear All Posts!')}}</a></p>
-                            {% endif %} {% if user != current_user and current_user.type == 'committee' %}
+                            {% endif %} {% if user != current_user and current_user.type == 'committee' and user.type!= 'committee' and user.is_applied(current_user) %}
                             <nav aria-label="...">
                                 <ul class="pager">
                                     <li class="next">

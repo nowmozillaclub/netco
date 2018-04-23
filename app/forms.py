@@ -67,7 +67,7 @@ class ManageForm(FlaskForm):
             user = User.query.filter_by(username = self.username.data).first()
             if user is not None:
                 raise ValidationError(_l('Username Already Taken'))
-                
+
 class PostEventForm(FlaskForm):
     event = StringField(_l('Event Name (Max: 50 Characters)'), validators=[DataRequired(), Length(min=1, max=50)])
     post = TextAreaField(_l('Description (Max: 250 Characters)'), validators=[

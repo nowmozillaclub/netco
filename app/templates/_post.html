@@ -1,84 +1,105 @@
-<table class="table table-hover">
-  <tr>
-    <td width="70px">
-      <a href="{{ url_for('user', username=post.author.username) }}">
-        <img src="{{ post.author.avatar(70) }}" />
-      </a>
-    </td>
-    <td>
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 80%;
+        border-radius: 5px;
+    }
+    
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+    
+    .container {
+        padding: 2px 16px;
+    }
+</style>
 
-      {% set user_link %}
-        <a href="{{ url_for('user', username=post.author.username) }}">
+
+<center>
+    <div class="card" style="margin:30px ;background-color:#D9EDF7">
+        <div class="conrainer-fluid">
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <a href="{{ url_for('user', username=post.author.username) }}">
+                        <img src="{{ post.author.avatar(70) }}" style=" width:100%; padding-left:20px; margin-bottom:10px; margin-top:20px">
+                    </a>
+                </div>
+
+
+                <div class="col-sm-10" style="padding-top: 20px; padding-right: 30px">
+
+                    {% set user_link %}
+                    <div style="text-align: left;">
+                        <a href="{{ url_for('user', username=post.author.username) }}">
           {{ post.author.username }}
-        </a>
-      {% endset %}
+        </a> {% endset %} {{ _('%(username)s added (%(when)s)', username=user_link, when=moment(post.timestamp).fromNow()) }} {% if post.type=='recruitments' %}
+                        <h3 style="margin-top:10px;">{{ post.author.username }} : {{ _("We're Recruiting!") }}</h3>
+                        <p>{{ post.body }}</p>
+                    </div>
 
-      {{ _('%(username)s added (%(when)s)', username=user_link, when=moment(post.timestamp).fromNow()) }}
-      <br><br>
 
-      {% if post.type=='recruitments' %}
-        <p>{{ _('Recruitments') }} - {{ post.author.username }} - {{ _("We're Recruiting!") }}</p>
-        {{ post.body }}
-
-            {% if post.language and post.language != g.locale %}
-            <br><br>
-            <a href="#">{{ _('Translate') }}</a>
-            {% endif %}
-
-      <nav aria-label="...">
-          <ul class="pager">
-            {% if current_user.type == 'student' %}
-              <li class="previous">
-                {% if not current_user.is_applied(post.author) %}
-                <a href="{{ url_for('apply', username=post.author.username) }}">
+                    <nav aria-label="...">
+                        <ul class="pager">
+                            {% if current_user.type == 'student' %}
+                            <li class="previous">
+                                {% if not current_user.is_applied(post.author) %}
+                                <a href="{{ url_for('apply', username=post.author.username) }}">
                   {{_('Apply')}}
                 {% else %}
                 <a href="{{ url_for('unapply', username=post.author.username) }}">
                   {{_('Rescind Application')}}
                   <span aria-hidden="true"></span>
                 </a>
-              </li>
-              {% endif %}
-              {% endif %}
-              {% if current_user == post.author %}
-              <li class="next">
-                <a href="{{ url_for('delete', current_post = post) }}">
+                            </li>
+                            {% endif %} {% endif %} {% if current_user == post.author %}
+                            <li class="next">
+                                <a href="{{ url_for('delete', current_post = post) }}">
                   {{_('Delete')}}  <span aria-hidden="true">&#x2718;</span>
                 </a>
-              </li>
-              {% endif %}
-        </ul>
-      </nav>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
 
-      {% else %}
+                    {% else %}
+                    <div style="text-align: left;">
+                        <h3 style="margin-top:10px;">{{ post.event }}</h3>
+                        <p>{{ post.body }}</p>
+                    </div>
 
-        {{ post.body }}
 
-        {% if post.language and post.language != g.locale %}
-        <br><br>
-        <a href="#">{{ _('Translate') }}</a>
-        {% endif %}
 
-        <nav aria-label="...">
-          <ul class="pager">
-            {% if current_user.type == 'student' %}
-              <li class="previous">
-                <a href="{{ post.link }}" target="_blank">
+                    <nav aria-label="...">
+                        <ul class="pager">
+                            {% if current_user.type == 'student' %}
+                            <li class="previous">
+                                <a href="{{ post.link }}" target="_blank">
                   {{_('Register')}}  <span aria-hidden="true"></span>
                 </a>
-              </li>
-            {% endif %}
-            {% if current_user == post.author %}
-              <li class="next">
-                <a href="{{ url_for('delete', current_post = post) }}">
+                            </li>
+                            {% endif %} {% if current_user == post.author %}
+                            <li class="next">
+                                <a href="{{ url_for('delete', current_post = post) }}">
                   {{_('Delete')}}  <span aria-hidden="true">&#x2718;</span>
                 </a>
-              </li>
-            {% endif %}
-          </ul>
-        </nav>
-        <nav aria-label="...">
-      {% endif %}
-    </td>
-  </tr>
-</table>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    <nav aria-label="...">
+                        {% endif %}
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</center>

@@ -1,12 +1,6 @@
-{% extends "base.html" %}
-{% import 'bootstrap/wtf.html' as wtf %}
-
-{% block app_content %}
-    <h1>{{ _('Hey there, %(username)s!', username=current_user.username) }}</h1>
-    <br>
-    {% for u in users %}
-      {%  if u.is_applied(current_user) %}
-        {% include '_applications.html' %}
-      {% endif %}
-    {% endfor %}
+{% extends "base.html" %} {% import 'bootstrap/wtf.html' as wtf %} {% block app_content %}
+<div style="padding-top: 20px; padding-left:40px; padding-right: 100px;margin:0px">
+    <h2 style="padding-left: 100px; margin-bottom: 0px ">{{ _('Applications') }}</h2>
+    <br> {% for u in users %} {% if u.is_applied(current_user) %} {% include '_applications.html' %} {% endif %} {% endfor %}
+</div>
 {% endblock %}

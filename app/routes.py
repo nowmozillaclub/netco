@@ -66,7 +66,6 @@ def applications():
 @app.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
-    flash(_('Student Login'))
     if current_user.type == 'committee':
         return redirect(url_for('index'))
     page = request.args.get('page', 1, type=int)
@@ -219,7 +218,7 @@ def unfollow(username):
 def apply(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        flash(_("Couldn't find user: %(username)s",username=username))
+        flash(_("Couldn't find committee: %(username)s",username=username))
         return redirect(url_for('index'))
     current_user.apply(user)
     db.session.commit()

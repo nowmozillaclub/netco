@@ -2,6 +2,8 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+
+<div style="margin-left:90px; margin-right:90px">
     <h1>{{ _('Hey there, %(username)s!', username=current_user.username) }}</h1>
     {% if form %}
     {{ wtf.quick_form(form) }}
@@ -24,4 +26,6 @@
             </li>
         </ul>
     </nav>
+
+</div>
 {% endblock %}

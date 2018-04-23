@@ -2,10 +2,14 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<div style="padding-top: :40px; padding-left:100px; margin:0px">
+
     <h1>{{_('Edit Profile')}}</h1>
     <div class="row">
         <div class="col-md-4">
             {{ wtf.quick_form(form) }}
         </div>
     </div>
+
+</div>
 {% endblock %}

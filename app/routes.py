@@ -164,7 +164,7 @@ def manage():
         current_user.username = form.username.data
         current_user.name = form.name.data
         current_user.email = form.email.data
-        current_user.phone = form.phone.data
+        current_user.phone_number = form.phone_number.data
         current_user.departments = form.departments.data
         current_user.about_me = form.about_me.data
         current_user.experience = form.experience.data
@@ -176,7 +176,7 @@ def manage():
         form.username.data = current_user.username
         form.name.data = current_user.name
         form.email.data = current_user.email
-        form.phone.data = current_user.phone
+        form.phone_number.data = current_user.phone_number
         form.departments.data = current_user.departments
         form.about_me.data = current_user.about_me
         form.experience.data = current_user.experience

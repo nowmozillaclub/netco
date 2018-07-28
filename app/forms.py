@@ -51,7 +51,7 @@ class ManageForm(FlaskForm):
     username = StringField(_l('Username'), validators=[DataRequired()])
     name = StringField(_l('Name'), validators=[DataRequired()])
     email = StringField(_l('Email'), validators=[DataRequired(), Email()])
-    phone = StringField(_l('Phone'), validators=[DataRequired(),Length(min=10,max=10)])
+    phone = StringField(_l('Phone'), validators=[DataRequired()])
     departments = StringField(_l('Departments Interested In'), validators=[DataRequired()])
     about_me = TextAreaField(_l('About Me (Max: 1000 Characters)'), validators=[Length(min=0, max=1000)])
     experience = TextAreaField(_l('My Experience (Max: 1000 Characters)'), validators=[Length(min=0, max=1000)])

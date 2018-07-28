@@ -1,7 +1,7 @@
 """add cv
 
 Revision ID: 035aa261bb96
-Revises: 
+Revises:
 Create Date: 2018-04-19 23:01:29.258256
 
 """
@@ -27,7 +27,7 @@ def upgrade():
     sa.Column('type', sa.String(length=20), nullable=True),
     sa.Column('last_seen', sa.DateTime(), nullable=True),
     sa.Column('name', sa.String(length=50), nullable=True),
-    sa.Column('phone', sa.Integer(), nullable=True),
+    sa.Column('phone', sa.String(length=10), nullable=True),
     sa.Column('experience', sa.String(length=1000), nullable=True),
     sa.Column('departments', sa.String(length=100), nullable=True),
     sa.Column('why', sa.String(length=1000), nullable=True),

@@ -28,10 +28,10 @@ def before_request():
         db.session.commit()
         g.locale = str(get_locale())
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/first', methods=['GET', 'POST'])
+@app.route('/')
+@app.route('/first')
 def first():
-    return render_template('home.html', title=_('First Page'))
+    return render_template('first.html', title=_('Welcome'))
 
 @app.route('/index', methods=['GET', 'POST'])
 @login_required

@@ -93,8 +93,7 @@
     }
 </style>
 
-<div class="slideshow-container">
-
+<!-- <div class="slideshow-container">
     <div class="mySlides fade">
         <img src="https://api.gccsda.com/uploads/store/8699cc2f62b703d3e767d23ead334cc7.jpg" style="width:100%">
     </div>
@@ -106,8 +105,7 @@
     <div class="mySlides fade">
         <img src="http://www.yesprep.org/sites/default/files/header_how_to_apply_0.jpg" style="width:100%">
     </div>
-
-</div>
+</div> -->
 
 <div style="text-align:center; opacity:0">
     <span class="dot"></span>
@@ -139,14 +137,6 @@
     }
 </script>
 
-{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
-<center>
-    <div class="alert alert-info" role="alert" style="width:100%; text-align:left;">
-        <div style="padding-left:10px">{{ message }}</div>
-    </div>
-</center>
-{% endfor %} {% endif %} {% endwith %}
-
 <div class="container-fluid">
     <div class="row" style="padding-bottom:40px">
 
@@ -162,12 +152,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 {% endblock %}

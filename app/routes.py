@@ -29,8 +29,9 @@ def before_request():
         g.locale = str(get_locale())
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/first', methods=['GET', 'POST'])
 def first():
-    return render_template('home.html', title=_('Home'))
+    return render_template('home.html', title=_('First Page'))
 
 @app.route('/index', methods=['GET', 'POST'])
 @login_required

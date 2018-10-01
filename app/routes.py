@@ -92,7 +92,6 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash(_('Invalid username or password'))
             return redirect(url_for('login'))
-        login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             if user.type == 'committee':

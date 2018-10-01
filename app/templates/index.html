@@ -4,12 +4,12 @@
 {% block app_content %}
 
 <div style="margin-left:90px; margin-right:90px">
-    {% if user!=null %}
+    {% if user is none %}
     <h1>{{ _('Hey there, %(username)s!', username=current_user.username) }}</h1>
     {% else %}
     <h1>{{ _('Hey there, Anon!', username=current_user.username) }}</h1>
     {% endif %}
-    
+
     {% if form %}
     {{ wtf.quick_form(form) }}
     <br>

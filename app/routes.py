@@ -28,7 +28,11 @@ def before_request():
         db.session.commit()
         g.locale = str(get_locale())
 
+<<<<<<< HEAD
 @app.route('/')
+=======
+@app.route('/', methods=['GET', 'POST'])
+>>>>>>> parent of 9d425fb... Merge branch 'master' of https://github.com/akash20995/Netco
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():

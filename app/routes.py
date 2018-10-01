@@ -28,11 +28,10 @@ def before_request():
         db.session.commit()
         g.locale = str(get_locale())
 
-<<<<<<< HEAD
-@app.route('/')
-=======
 @app.route('/', methods=['GET', 'POST'])
->>>>>>> parent of 6e20c1b... Merge pull request #3 from nowmozillaclub/master
+def first():
+    return render_template('home.html', title=_('Home'))
+
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
@@ -93,6 +92,7 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash(_('Invalid username or password'))
             return redirect(url_for('login'))
+        login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             if user.type == 'committee':

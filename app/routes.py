@@ -28,7 +28,11 @@ def before_request():
         db.session.commit()
         g.locale = str(get_locale())
 
+<<<<<<< HEAD
 @app.route('/')
+=======
+@app.route('/', methods=['GET', 'POST'])
+>>>>>>> parent of 6e20c1b... Merge pull request #3 from nowmozillaclub/master
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():

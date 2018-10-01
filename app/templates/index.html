@@ -4,7 +4,7 @@
 {% block app_content %}
 
 <div style="margin-left:90px; margin-right:90px">
-    {% if user is none %}
+    {% if current_user.username == null %}
     <h1>{{ _('Hey there, Anon!', username=current_user.username) }}</h1>
     {% else %}
     <h1>{{ _('Hey there, %(username)s!', username=current_user.username) }}</h1>
